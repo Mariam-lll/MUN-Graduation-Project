@@ -31,7 +31,9 @@ Tools:
 ### File reporter
 - Displays the total word count, line count, and number of characters
 ### File preview
-- Prints the entire content of the uploaded file
+- Prints the entire content of the file
+### Last modification date
+- Displays the last modification date of the file in a readable format
 
 
 
