@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Utility Hub</title>
+    <style>
+        /* Bitcount Grid Double Ink */
+        @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&display=swap');
+        /* Raleway */
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+        /* Open Sans */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-accent: #fdfff4;
+            --primary-font: "Bitcount Grid Double Ink", system-ui;
+            --secondary-font: "Raleway", sans-serif;
+            --tertiary-font: "Open Sans", sans-serif;
+        }
+
+        body {
+            background-image: url("https://t3.ftcdn.net/jpg/03/67/47/16/240_F_367471686_RaPyvt3v6EB6eyvHnsF2DJFqebKaXxeo.jpg");
+            color: var(--primary-accent);
+            box-sizing: border-box;
+            margin: 0;
+            background-attachment: fixed;
+        }
+
+        #nav-bar {
+            position: fixed;
+            width: 100%;
+            backdrop-filter: blur(1px);
+            background-color: transparent;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            color: var(--primary-accent);
+            text-transform: capitalize;
+            border-bottom: 1px solid white;
+            z-index: 1;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #nav-bar h1 {
+            font-family: var(--primary-font);
+            font-size: 1.5em;
+            white-space: nowrap;
+            text-decoration: none;
+            padding: 1vw;
+        }
+
+        #nav-bar ul {
+            width: 40vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1vw;
+        }
+
+        #nav-bar ul li {
+            list-style: none;
+            font-family: var(--secondary-font);
+        }
+
+        .page {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 5vh;
+        }
+
+        #page-1 h1 {
+            font-size: 3em;
+            font-family: var(--primary-font);
+            text-transform: capitalize;
+        }
+
+        #page-1 p {
+            font-family: var(--secondary-font)
+        }
+
+        .card {
+            width: 80%;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid var(--primary-accent);
+            transition: all 0.5s;
+            padding: 1vw;
+            backdrop-filter: blur(3px);
+        }
+
+        .card:hover {
+            box-shadow:0 0 5px var(--primary-accent);
+        }
+
+        h2, h3 {
+            font-family: var(--secondary-font);
+            text-transform: capitalize;
+            padding: 1vw;
+        }
+
+        h2 {
+            align-self: center;
+        }
+
+        .input {
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        input {
+            width: 40vw;
+            height: 5vh;
+            border: none;
+            outline: none;
+            padding: 1vw;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        input::placeholder {
+            font-family: var(--secondary-font);
+        }
+
+        input:hover {
+            scale: 1.1;
+            box-shadow:0 0 5px var(--primary-accent);
+        }
+
+        button {
+            height: 5vh;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: var(--primary-accent);
+            border: 1px solid var(--primary-accent);
+            font-family: var(--secondary-font);
+            transition: all 0.5s;
+        }
+
+        button:hover {
+            background-color: var(--primary-accent);
+            color: #420440;
+        }
+
+        .results p {
+            font-family: var(--tertiary-font);
+            /* padding: 1vw; */
+            width: 100%;
+            height: 20vh;
+            font-size: .9em;
+        }
+
+        .page-3 .input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-3 .results {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1vw;
+        }
+
+        span {
+            display: none;
+            position: relative;
+            height: 5vh;
+            align-self: center;
+            top: 5px;
+            color: white;
+            white-space: nowrap;
+            font-size: .7em;
+            font-family: var(--secondary-font);
+        }
+
+        .NaN-label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-bar">
+        <a href="#page-1"><h1>Smart utility hub</h1></a>
+        <ul>
+            <a href="#page-2"><li>Password validator</li></a>
+            <a href="#page-3"><li>BMI calculator</li></a>
+        </ul>
+    </div>
+    <div id="page-1" class="page">
+        <h1>Smart utility hub</h1>
+        <p>Simple tools for everyday calculations and quick checks.</p>
+    </div>
+    <div id="page-2" class="page">
+        <div class="card">
+        <h2>Password Validator</h2>
+        <div class="input">
+        <input type="text" placeholder="Enter password">
+        <button class="pass-button">Validate</button>
+        
+        </div>
+        <div class="results">
+            <h3>Suggestions:</h3>
+            <p></p>
+        </div>
+        </div>
+    </div>
+
+    <div id="page-3" class="page">
+        <div class="card">
+        <h2>BMI calculator</h2>
+        <div class="input">
+            <input type="text" placeholder="Enter your weight in kilograms">
+            <span class="weight-span">This value should be a number</span>
+            <input type="text" placeholder="Enter your height in meters">
+            <span class="height-span">This value should be a nubmer</span>
+            <button class="bmi-button">Calculate</button>
+        </div>
+        <div class="results">
+            <h3>BMI = </h3>
+            <p></p>
+        </div>
+        </div>
+    </div>
+    <script>
+        let PassButton = document.querySelector(".pass-button");
+
+PassButton.addEventListener("click", () => {
+
+    let pass = document.querySelector("input[placeholder=\"Enter password\"]");
+    let nodes = [];
+    let ul = document.createElement("ul");
+    let PassP = document.querySelector("#page-2 p");
+
+    if (pass.value.length < 8) {
+        nodes.push(document.createTextNode("The password should be at least 8 letters long"))
+    }
+    if (!/[A-Z]/.test(pass.value)) {
+        nodes.push(document.createTextNode("The password should include at least 1 capital letter"));
+    } if (!/[a-z]/.test(pass.value)) {
+        nodes.push(document.createTextNode("The password should include at least 1 small letter"));
+    } if (!/[0-9]/.test(pass.value)) {
+        nodes.push(document.createTextNode("The password should include at least 1 number"));
+    } if (!/[^A-Za-z0-9]/.test(pass.value)) {
+        nodes.push(document.createTextNode("The password should include at least 1 special character"));
+    } if (nodes.length === 0) {
+        nodes.push(document.createTextNode("The password is strong!"))
+    }
+
+    nodes.forEach((node) => {
+        let li = document.createElement("li");
+        li.appendChild(node);
+        ul.appendChild(li)
+    });
+    PassP.innerHTML = "";
+    PassP.appendChild(ul);
+});
+
+let weight = document.querySelector("input[placeholder=\"Enter your weight in kilograms\"]");
+let height = document.querySelector("input[placeholder=\"Enter your height in meters\"]");
+let BmiP = document.querySelector("#page-3 p");
+let BmiButton = document.querySelector(".bmi-button");
+let weightSpan = document.querySelector(".weight-span");
+let heightSpan = document.querySelector(".height-span");
+BmiButton.addEventListener("click", () => {
+
+    if (isNaN(Number(weight.value))) {
+        weightSpan.classList.add("NaN-label")
+    } else {
+        weightSpan.classList.remove("NaN-label")
+    }
+
+    if (isNaN(Number(height.value))) {
+      heightSpan.classList.add("NaN-label");
+    } else {
+        heightSpan.classList.remove("NaN-label");
+    }
+
+    if (weightSpan.classList.contains("NaN-label") || heightSpan.classList.contains("NaN-label")) {
+        return
+    } else {
+        let bmiValue = Number(weight.value) / (Number(height.value) ** 2);
+        BmiP.innerHTML = "";
+        BmiP.textContent = bmiValue.toFixed(1);
+    }
+});
+
+    </script>
+</body>
+</html>
